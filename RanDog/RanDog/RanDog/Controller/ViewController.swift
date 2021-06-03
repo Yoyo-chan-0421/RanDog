@@ -29,7 +29,7 @@ class ViewController: UIViewController {
     }
     
     func handleRandomImageResponse(imageData: DogImage?, error: Error?) {
-         guard let imageURL = URL(string: imageData?.message ?? "") else{return}
+        guard let imageURL = URL(string: imageData!.message) else{return}
         Dog.ImageFile(url: imageURL , completionHandler: self.handleImageFile(image:error:))
     }
     
@@ -48,7 +48,7 @@ extension ViewController: UIPickerViewDataSource, UIPickerViewDelegate{
     func numberOfComponents(in pickerView: UIPickerView) -> Int {
         return 1
     }
-    func pickerView(_pickerView: UIPickerView, titleForRow row: Int, forComponent component: Int) -> String?{
+    func pickerView(_ pickerView: UIPickerView, titleForRow row: Int, forComponent component: Int) -> String?{
         return breeds[row]
     }
     

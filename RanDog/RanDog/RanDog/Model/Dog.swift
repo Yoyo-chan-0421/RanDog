@@ -49,13 +49,12 @@ class func ImageFile(url: URL, completionHandler: @escaping (UIImage?, Error?) -
                 return
             }
              // Changing the JSON code into swift using Codable
-                let decoder = JSONDecoder()
-            do{
+            do{ let decoder = JSONDecoder()
                 let imageData = try decoder.decode(DogImage.self, from: data)
                 print(imageData)
-            completionHandler(imageData, error)
+                completionHandler(imageData, nil)
             }catch{
-                print(error)
+                print("hello")
             }
              
             // Adding the image to the UIImage
